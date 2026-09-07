@@ -65,6 +65,12 @@ One physical gotcha when picking calibration references: **ordinary glass is opa
 ## Quickstart
 
 ```bash
+# libusb-1.0 is a SYSTEM library, not a pip package -- pyusb just binds to it,
+# and fails at runtime (not install time) with a cryptic NoBackendError without it.
+sudo apt install libusb-1.0-0        # Debian/Ubuntu
+# sudo dnf install libusb1           # Fedora
+# sudo pacman -S libusb              # Arch
+
 python3 -m venv venv
 ./venv/bin/pip install -r requirements.txt
 
